@@ -12,6 +12,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.0.1/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./style.css">
 </head>
 <body class="bg-gray-100">
@@ -19,7 +20,15 @@
         <div class="logo">
             <img src="./img/logo.png" alt="Green Mart Logo" class="h-10">
         </div>
-        <nav>
+        <div class="flex items-center">
+            <button id="darkModeToggle" class="p-2 rounded bg-gray-800 text-white mr-3">
+                <i id="darkModeIcon" class="bi bi-moon-fill"></i>
+            </button>
+            <button id="hamburgerBtn" class="text-white text-3xl md:hidden">
+                ☰
+            </button>
+        </div>
+        <nav id="navMenu" class="hidden absolute top-full right-0 bg-dark w-full flex flex-col items-center p-4 lg:flex lg:flex-row lg:static lg:w-auto lg:bg-transparent">
             <a href="#home" class="text-white mx-4 hover:underline">Home</a>
             <a href="#services" class="text-white mx-4 hover:underline">Service</a>
             <a href="#about" class="text-white mx-4 hover:underline">About Us</a>
@@ -70,19 +79,19 @@
         </div>
     </section>
     <section id="contact-form" class="contact-form text-center mb-10 px-4">
-        <h2 class="section-title text-3xl mb-5">Contact Us</h2>
+        <h2 class="section-title text-3xl mb-5"><br>Contact Us</h2>
         <form action="#" class="flex flex-col items-center">
             <input type="text" name="name" placeholder="Your Name" required class="p-3 mb-4 border rounded w-2/3">
             <input type="email" name="email" placeholder="Your Email" required class="p-3 mb-4 border rounded w-2/3">
             <textarea name="message" placeholder="Your Message" rows="5" required class="p-3 mb-4 border rounded w-2/3"></textarea>
-            <input type="submit" value="Send Message" class="p-3 bg-dark text-white rounded cursor-pointer btn-send">
+            <input type="submit" value="Send Message" class="p-3 bg-dark text-white rounded cursor-pointer btn-send"><br>
         </form>
     </section>
     <footer class="bg-dark text-white text-center p-4 mt-10">
         <p>&copy; 2025 Green Mart. All rights reserved.</p>
         <p>Contact us: support@greenmart.com [dummy]</p>
     </footer>
-
+    <button id="scrollToTop">&#8679;</button>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0uTebClL7ni2RAI/Jr59hbF3gq7pZRgsD5K7Q1dYq0gXi0+qz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
