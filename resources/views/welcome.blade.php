@@ -6,19 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Green Mart</title>
-    <link rel="icon" type="image/x-icon" href="./img/icon.png">
+    <link rel="icon" type="image/png" href="{{ asset('img/icon.png') }}?v=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJaoDL1T6pDUJWwJf6A5Y0wQJ7XbD6cP4Op4ynU1xtz5xYf2lt2qJ7O4+hp4" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.0.1/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body class="bg-gray-100">
     <header class="bg-dark text-white p-4 d-flex justify-content-between align-items-center">
         <div class="logo">
-            <img src="./img/logo.png" alt="Green Mart Logo" class="h-10">
+            <img src="{{ asset('img/logo.png') }}" alt="Green Mart Logo" class="h-10">
         </div>
         <div class="flex items-center">
             <button id="darkModeToggle" class="p-2 rounded bg-gray-800 text-white mr-3">
@@ -35,7 +35,7 @@
             <a href="#contact-form" class="text-white mx-4 hover:underline">Contact</a>
         </nav>
     </header>
-    <section id="home" class="hero text-white text-center py-40 bg-cover bg-center" style="background-image: url('./img/hero-section.jpg');">
+    <section id="home" class="hero text-white text-center py-40 bg-cover bg-center" style="background-image: url({{ asset('img/hero-section.jpg') }});">
         <h1 class="text-4xl font-bold text-shadow-lg">Welcome to Green Mart</h1>
         <p class="text-2xl mt-4 text-shadow-lg">Your one-stop shop for eco-friendly products.</p>
     </section>
@@ -45,21 +45,21 @@
             <div class="swiper-wrapper">
                 <div class="swiper-slide service bg-white border p-4 text-center">
                     <div class="services-img">
-                        <img src="./img/cleaning-products.jpg" class="w-full h-auto" />
+                        <img src="{{ asset('img/cleaning-products.jpg') }}" class="w-full h-auto" />
                     </div>
                     <h3 class="text-xl mt-4">Green Cleaning Supplies</h3>
                     <p>Shop for natural and biodegradable cleaning solutions.</p>
                 </div>
                 <div class="swiper-slide service bg-white border p-4 text-center">
                     <div class="services-img">
-                        <img src="./img/cloth.jpg" class="w-full h-auto" />
+                        <img src="{{ asset('img/cloth.jpg') }}" class="w-full h-auto" />
                     </div>
                     <h3 class="text-xl mt-4">Sustainable Fashion</h3>
                     <p>Save the Earth with your style.</p>
                 </div>
                 <div class="swiper-slide service bg-white border p-4 text-center">
                     <div class="services-img">
-                        <img src="./img/home-goods.jpg" class="w-full h-auto" />
+                        <img src="{{ asset('img/home-goods.jpg') }}" class="w-full h-auto" />
                     </div>
                     <h3 class="text-xl mt-4">Eco-Friendly Home Goods</h3>
                     <p>Fill your home with unique and incredible decoration.</p>
@@ -94,7 +94,7 @@
     <button id="scrollToTop">&#8679;</button>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0uTebClL7ni2RAI/Jr59hbF3gq7pZRgsD5K7Q1dYq0gXi0+qz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <script src="script.js"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
 </body>
 
 </html>
