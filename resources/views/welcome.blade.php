@@ -44,25 +44,31 @@
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide service bg-white border p-4 text-center">
-                    <div class="services-img">
-                        <img src="{{ asset('img/cleaning-products.jpg') }}" class="w-full h-auto" />
-                    </div>
-                    <h3 class="text-xl mt-4">Green Cleaning Supplies</h3>
-                    <p>Shop for natural and biodegradable cleaning solutions.</p>
+                    <a href="{{ route('cleaning-products') }}" class="block w-full h-full">
+                        <div class="services-img">
+                            <img src="{{ asset('img/cleaning-products.jpg') }}" class="w-full h-auto" />
+                        </div>
+                        <h3 class="text-xl mt-4">Green Cleaning Supplies</h3>
+                        <p>Shop for natural and biodegradable cleaning solutions.</p>
+                    </a>
                 </div>
                 <div class="swiper-slide service bg-white border p-4 text-center">
-                    <div class="services-img">
-                        <img src="{{ asset('img/cloth.jpg') }}" class="w-full h-auto" />
-                    </div>
-                    <h3 class="text-xl mt-4">Sustainable Fashion</h3>
-                    <p>Save the Earth with your style.</p>
+                    <a href="{{ route('fashion') }}" class="block w-full h-full">
+                        <div class="services-img">
+                            <img src="{{ asset('img/cloth.jpg') }}" class="w-full h-auto" />
+                        </div>
+                        <h3 class="text-xl mt-4">Sustainable Fashion</h3>
+                        <p>Save the Earth with your style.</p>
+                    </a>
                 </div>
                 <div class="swiper-slide service bg-white border p-4 text-center">
-                    <div class="services-img">
-                        <img src="{{ asset('img/home-goods.jpg') }}" class="w-full h-auto" />
-                    </div>
-                    <h3 class="text-xl mt-4">Eco-Friendly Home Goods</h3>
-                    <p>Fill your home with unique and incredible decoration.</p>
+                    <a href="{{ route('home-goods') }}" class="block w-full h-full">
+                        <div class="services-img">
+                            <img src="{{ asset('img/home-goods.jpg') }}" class="w-full h-auto" />
+                        </div>
+                        <h3 class="text-xl mt-4">Eco-Friendly Home Goods</h3>
+                        <p>Fill your home with unique and incredible decoration.</p>
+                    </a>
                 </div>
             </div>
             <div class="swiper-pagination"></div>
