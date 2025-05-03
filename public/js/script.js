@@ -1,13 +1,13 @@
 const heroSection = document.querySelector('#home');
-const images = [
-    './img/hero-section.jpg',
-    './img/hero-section-2.jpg',
-    './img/hero-section-3.jpg',
-    './img/hero-section-4.jpg',
-    './img/hero-section-5.jpg',
-    './img/hero-section-6.jpg'
-
-];
+const images = JSON.parse(heroSection.dataset.images);
+<div id="hero-section" data-images='@json([
+    asset("img/hero-section.jpg"),
+    asset("img/hero-section-2.jpg"),
+    asset("img/hero-section-3.jpg"),
+    asset("img/hero-section-4.jpg"),
+    asset("img/hero-section-5.jpg"),
+    asset("img/hero-section-6.jpg"),
+])'></div>
 let currentIndex = 0;
 function changeBackgroundImage() {
     currentIndex = (currentIndex + 1) % images.length;
