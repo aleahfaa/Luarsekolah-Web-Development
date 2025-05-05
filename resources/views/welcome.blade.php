@@ -13,9 +13,9 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.0.1/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-100 d-flex flex-column min-vh-100">
     <header class="bg-dark text-white p-4 d-flex justify-content-between align-items-center">
         <div class="logo">
             <img src="{{ asset('img/logo.png') }}" alt="Green Mart Logo" class="h-10">
@@ -28,14 +28,11 @@
                 ☰
             </button>
         </div>
-        <nav id="navMenu" class="hidden absolute top-full right-0 bg-dark w-full flex flex-col items-center p-4 lg:flex lg:flex-row lg:static lg:w-auto lg:bg-transparent">
+        <nav id="navMenu" class="absolute top-full right-0 bg-dark w-full flex flex-col items-center p-4 lg:flex lg:flex-row lg:static lg:w-auto lg:bg-transparent">
             <a href="#home" class="text-white mx-4 hover:underline">Home</a>
-            <a href="#services" class="text-white mx-4 hover:underline">Service</a>
-            <a href="#about" class="text-white mx-4 hover:underline">About Us</a>
-            <a href="#contact-form" class="text-white mx-4 hover:underline">Contact</a>
         </nav>
     </header>
-    <section id="home" class="hero text-white text-center py-40 bg-cover bg-center" style="background-image: url({{ asset('img/hero-section.jpg') }});">
+    <section id="home" class="hero text-white text-center py-40 bg-cover bg-center flex-grow-1" style="background-image: url({{ asset('img/hero-section.jpg') }});">
         <h1 class="text-4xl font-bold text-shadow-lg">Welcome to Green Mart</h1>
         <p class="text-2xl mt-4 text-shadow-lg">Your one-stop shop for eco-friendly products.</p>
     </section>
@@ -48,7 +45,7 @@
                         <div class="services-img">
                             <img src="{{ asset('img/cleaning-products.jpg') }}" class="w-full h-auto" />
                         </div>
-                        <h3 class="text-xl mt-4">Green Cleaning Supplies</h3>
+                        <h3 class="text-sm mt-4">Green Cleaning Supplies</h3>
                         <p>Shop for natural and biodegradable cleaning solutions.</p>
                     </a>
                 </div>
@@ -57,7 +54,7 @@
                         <div class="services-img">
                             <img src="{{ asset('img/cloth.jpg') }}" class="w-full h-auto" />
                         </div>
-                        <h3 class="text-xl mt-4">Sustainable Fashion</h3>
+                        <h3 class="text-md mt-4">Sustainable Fashion</h3>
                         <p>Save the Earth with your style.</p>
                     </a>
                 </div>
@@ -66,7 +63,7 @@
                         <div class="services-img">
                             <img src="{{ asset('img/home-goods.jpg') }}" class="w-full h-auto" />
                         </div>
-                        <h3 class="text-xl mt-4">Eco-Friendly Dashboard Goods</h3>
+                        <h3 class="text-sm mt-4">Eco-Friendly Home Goods</h3>
                         <p>Fill your home with unique and incredible decoration.</p>
                     </a>
                 </div>
@@ -76,7 +73,7 @@
         <div class="swiper-button-prev"></div>
     </div>
     </section>
-    <section id="testimonials" class="testimonials flex justify-around mb-10 px-4">
+    <section id="testimonials" class="testimonials flex justify-around mb-10 mt-10 px-4">
         <div class="testimonial bg-white border p-4 w-1/2 text-center">
             <p>"Green Mart offers high-quality sustainable products that help reduce waste." - Sarah P.</p>
         </div>
@@ -93,14 +90,14 @@
             <input type="submit" value="Send Message" class="p-3 bg-dark text-white rounded cursor-pointer btn-send"><br>
         </form>
     </section>
-    <footer class="bg-dark text-white text-center p-4 mt-10">
+    <footer class="bg-dark text-white text-center p-4 mt-10 w-full">
         <p>&copy; 2025 Green Mart. All rights reserved.</p>
         <p>Contact us: support@greenmart.com [dummy]</p>
     </footer>
     <button id="scrollToTop">&#8679;</button>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0uTebClL7ni2RAI/Jr59hbF3gq7pZRgsD5K7Q1dYq0gXi0+qz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <script src="{{ asset('js/script.js') }}"></script>
+    <script src="/js/script.js"></script>
 </body>
 
 </html>

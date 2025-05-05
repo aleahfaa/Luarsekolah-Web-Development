@@ -7,21 +7,52 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
-    public function cleaningProducts()
+    // Contoh di ProductController.php
+    public function cleaningProducts(Request $request)
     {
-        $products = Product::where('category', 'Cleaning Products')->get();
+        $search = $request->input('search');
+
+        $products = Product::where('category', 'Cleaning Products')
+            ->when($search, function($query) use ($search) {
+                $query->where(function($q) use ($search) {
+                    $q->where('name', 'like', "%$search%")
+                      ->orWhere('description', 'like', "%$search%");
+                });
+            })
+            ->get();
+
         return view('cleaning-products', compact('products'));
     }
 
-    public function fashionProducts()
+    public function fashionProducts(Request $request)
     {
-        $products = Product::where('category', 'Fashion')->get();
+        $search = $request->input('search');
+        
+        $products = Product::where('category', 'Fashion')
+            ->when($search, function($query) use ($search) {
+                $query->where(function($q) use ($search) {
+                    $q->where('name', 'like', "%$search%")
+                      ->orWhere('description', 'like', "%$search%");
+                });
+            })
+            ->get();
+
         return view('fashion', compact('products'));
     }
 
-    public function homeGoods()
+    public function homeGoods(Request $request)
     {
-        $products = Product::where('category', 'Home Goods')->get();
+        $search = $request->input('search');
+        
+        $products = Product::where('category', 'Home Goods')
+            ->when($search, function($query) use ($search) {
+                $query->where(function($q) use ($search) {
+                    $q->where('name', 'like', "%$search%")
+                      ->orWhere('description', 'like', "%$search%");
+                });
+            })
+            ->get();
+
         return view('home-goods', compact('products'));
     }
 

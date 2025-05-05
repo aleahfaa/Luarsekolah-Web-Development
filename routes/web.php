@@ -20,18 +20,24 @@ Route::get('/home-goods', function () {
     return view('home-goods');
 })->name('home-goods');
 
-Route::get('/cleaning-products', [ProductController::class, 'cleaningProducts']);
-Route::get('/fashion', [ProductController::class, 'fashionProducts']);
-Route::get('/home-goods', [ProductController::class, 'homeGoods']);
+// Cleaning Products (Search)
+Route::get('/cleaning-products', [ProductController::class, 'cleaningProducts'])
+    ->name('cleaning.products');
+
+// Fashion (Search)
+Route::get('/fashion', [ProductController::class, 'fashionProducts'])
+    ->name('fashion.products');
+
+// Home Goods (Search)
+Route::get('/home-goods', [ProductController::class, 'homeGoods'])
+    ->name('homegoods.products');
+
+
 
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-
-
-
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
