@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\MessageController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,20 +21,16 @@ Route::get('/home-goods', function () {
     return view('home-goods');
 })->name('home-goods');
 
-// Cleaning Products (Search)
 Route::get('/cleaning-products', [ProductController::class, 'cleaningProducts'])
     ->name('cleaning.products');
 
-// Fashion (Search)
 Route::get('/fashion', [ProductController::class, 'fashionProducts'])
     ->name('fashion.products');
 
-// Home Goods (Search)
 Route::get('/home-goods', [ProductController::class, 'homeGoods'])
     ->name('homegoods.products');
 
-
-
+Route::post('/contact', [MessageController::class, 'store']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -44,10 +41,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    // product crud
-
     Route::resource("/products", ProductController::class);
 });
-
 
 require __DIR__."/auth.php";

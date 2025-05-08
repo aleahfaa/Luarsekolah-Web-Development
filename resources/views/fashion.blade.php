@@ -50,6 +50,7 @@
                                     style="height: 200px; object-fit: cover; width: 100%;">
                                 <div class="my-2">
                                     <h5 class="card-title fw-bold">{{ $product->name }}</h5>
+                                    <p class="text-success fw-bold mb-1">Price: Rp{{ number_format($product->price, 2) }}</p>
                                     <p class="card-text">{{ $product->description }}</p>
                                     <p class="text-muted">Store: {{ $product->store }}</p>
                                 </div>

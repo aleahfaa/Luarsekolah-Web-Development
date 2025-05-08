@@ -40,6 +40,10 @@
                                 </th>
                                 <th
                                     class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                                    Price
+                                </th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                                     Actions
                                 </th>
                             </tr>
@@ -65,6 +69,9 @@
                                             {{ $item->category }}
                                         </span>
                                     </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        Rp {{ number_format($item->price, 2) }}
+                                    </td>                                    
                                     <td>
                                         <div class="flex gap-2">
                                             <a href="{{ route('products.edit', ['product' => $item->id]) }}"

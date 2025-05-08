@@ -73,13 +73,13 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        // Validasi input
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string',
             'category' => 'required|string',
+            'price' => 'required|decimal:2',
             'store' => 'required|string',
-            'image' => 'required|image|mimes:jpg,jpeg,png|max:2048', // maksimal 2MB
+            'image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
         $imageName = time() . '.' . $request->image->extension();
@@ -89,6 +89,7 @@ class ProductController extends Controller
             'name' => $request->name,
             'description' => $request->description,
             'category' => $request->category,
+            'price' => $request->price,
             'store' => $request->store,
             'image_path' => 'images/products/' . $imageName,
         ]);
@@ -111,12 +112,13 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string',
+            'price' => 'required|decimal',
             'category' => 'required|string',
             'store' => 'required|string',
             'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
-        $data = $request->only(['name', 'description', 'category', 'store']);
+        $data = $request->only(['name', 'description', 'price','category', 'store']);
 
         if ($request->hasFile('image')) {
             $imageName = time() . '.' . $request->image->extension();

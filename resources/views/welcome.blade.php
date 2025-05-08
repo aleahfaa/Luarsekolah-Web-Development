@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Green Mart</title>
     <link rel="icon" type="image/png" href="{{ asset('img/icon.png') }}?v=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJaoDL1T6pDUJWwJf6A5Y0wQJ7XbD6cP4Op4ynU1xtz5xYf2lt2qJ7O4+hp4" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEJaoDL1T6pDUJWwJf6A5Y0wQJ7XbD6cP4Op4ynU1xtz5xYf2lt2qJ7O4+hp4" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lora:wght@400;700&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.0.1/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
@@ -28,11 +30,15 @@
                 ☰
             </button>
         </div>
-        <nav id="navMenu" class="absolute top-full right-0 bg-dark w-full flex flex-col items-center p-4 lg:flex lg:flex-row lg:static lg:w-auto lg:bg-transparent">
+        <nav id="navMenu"
+            class="absolute top-full right-0 bg-dark w-full flex flex-col items-center p-4 lg:flex lg:flex-row lg:static lg:w-auto lg:bg-transparent">
             <a href="#home" class="text-white mx-4 hover:underline">Home</a>
+            <a href="#services" class="text-white mx-4 hover:underline">Service</a>
+            <a href="#contact-form" class="text-white mx-4 hover:underline">Contact</a>
         </nav>
     </header>
-    <section id="home" class="hero text-white text-center py-40 bg-cover bg-center flex-grow-1" style="background-image: url({{ asset('img/hero-section.jpg') }});">
+    <section id="home" class="hero text-white text-center py-40 bg-cover bg-center flex-grow-1"
+        style="background-image: url({{ asset('img/hero-section.jpg') }});">
         <h1 class="text-4xl font-bold text-shadow-lg">Welcome to Green Mart</h1>
         <p class="text-2xl mt-4 text-shadow-lg">Your one-stop shop for eco-friendly products.</p>
     </section>
@@ -69,9 +75,9 @@
                 </div>
             </div>
             <div class="swiper-pagination"></div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-    </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
     </section>
     <section id="testimonials" class="testimonials flex justify-around mb-10 mt-10 px-4">
         <div class="testimonial bg-white border p-4 w-1/2 text-center">
@@ -83,11 +89,19 @@
     </section>
     <section id="contact-form" class="contact-form text-center mb-10 px-4">
         <h2 class="section-title text-3xl mb-5"><br>Contact Us</h2>
-        <form action="#" class="flex flex-col items-center">
+        @if(session('success'))
+            <div class="alert alert-success w-2/3 mx-auto mb-4">
+                {{ session('success') }}
+            </div>
+        @endif
+        <form action="{{ url('/contact') }}" method="POST" class="flex flex-col items-center">
+            @csrf
             <input type="text" name="name" placeholder="Your Name" required class="p-3 mb-4 border rounded w-2/3">
             <input type="email" name="email" placeholder="Your Email" required class="p-3 mb-4 border rounded w-2/3">
-            <textarea name="message" placeholder="Your Message" rows="5" required class="p-3 mb-4 border rounded w-2/3"></textarea>
-            <input type="submit" value="Send Message" class="p-3 bg-dark text-white rounded cursor-pointer btn-send"><br>
+            <textarea name="message" placeholder="Your Message" rows="5" required
+                class="p-3 mb-4 border rounded w-2/3"></textarea>
+            <input type="submit" value="Send Message"
+                class="p-3 bg-dark text-white rounded cursor-pointer btn-send"><br>
         </form>
     </section>
     <footer class="bg-dark text-white text-center p-4 mt-10 w-full">
@@ -95,7 +109,9 @@
         <p>Contact us: support@greenmart.com [dummy]</p>
     </footer>
     <button id="scrollToTop">&#8679;</button>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0uTebClL7ni2RAI/Jr59hbF3gq7pZRgsD5K7Q1dYq0gXi0+qz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pzjw8f+ua7Kw1TIq0uTebClL7ni2RAI/Jr59hbF3gq7pZRgsD5K7Q1dYq0gXi0+qz"
+        crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script src="/js/script.js"></script>
 </body>

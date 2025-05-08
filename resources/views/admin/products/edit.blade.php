@@ -19,8 +19,7 @@
                             <label class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2" for="name">
                                 Name
                             </label>
-                            <input id="name" name="name" type="text"
-                                value="{{ old('name', $product->name) }}"
+                            <input id="name" name="name" type="text" value="{{ old('name', $product->name) }}"
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:outline-none focus:shadow-outline"
                                 required>
                         </div>
@@ -58,8 +57,7 @@
                             <label class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2" for="store">
                                 Store
                             </label>
-                            <input id="store" name="store" type="text"
-                                value="{{ old('store', $product->store) }}"
+                            <input id="store" name="store" type="text" value="{{ old('store', $product->store) }}"
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:outline-none focus:shadow-outline"
                                 required>
                         </div>
@@ -73,17 +71,25 @@
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:outline-none focus:shadow-outline"
                                 required>
                                 <option value="">-- Select Category --</option>
-                                <option value="Home Goods"
-                                    {{ old('category', $product->category) == 'Home Goods' ? 'selected' : '' }}>Home
+                                <option value="Home Goods" {{ old('category', $product->category) == 'Home Goods' ? 'selected' : '' }}>Home
                                     Goods</option>
-                                <option value="Fashion"
-                                    {{ old('category', $product->category) == 'Fashion' ? 'selected' : '' }}>Fashion
+                                <option value="Fashion" {{ old('category', $product->category) == 'Fashion' ? 'selected' : '' }}>Fashion
                                 </option>
-                                <option value="Cleaning Products"
-                                    {{ old('category', $product->category) == 'Cleaning Products' ? 'selected' : '' }}>
+                                <option value="Cleaning Products" {{ old('category', $product->category) == 'Cleaning Products' ? 'selected' : '' }}>
                                     Cleaning Products</option>
                             </select>
                         </div>
+                        <!-- Price -->
+                        <div class="mb-4">
+                            <label class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2" for="price">
+                                Price
+                            </label>
+                            <input id="price" name="price" type="number" step="0.01" min="0"
+                                value="{{ old('price', $product->price) }}"
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:outline-none focus:shadow-outline"
+                                required>
+                        </div>
+
 
                         <!-- Submit Button -->
                         <div class="flex items-center justify-end">
