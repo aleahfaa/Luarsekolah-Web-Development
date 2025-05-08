@@ -18,6 +18,14 @@
             <img src="{{ asset('img/logo.png') }}" alt="Green Mart Logo" class="h-10">
         </div>
         <div class="flex items-center">
+            <a href="{{ route('cart.index') }}" class="text-white mx-4 relative">
+                <i class="bi bi-cart-fill text-2xl"></i>
+                @if(session()->has('cart') && count(session()->get('cart')) > 0)
+                    <span class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
+                        {{ count(session()->get('cart')) }}
+                    </span>
+                @endif
+            </a>
             <button id="darkModeToggle" class="p-2 rounded bg-gray-800 text-white mr-3">
                 <i id="darkModeIcon" class="bi bi-moon-fill"></i>
             </button>
@@ -32,6 +40,13 @@
     <main style="flex-grow: 1; min-height: calc(100vh - 140px);">
         <section class="mt-10 mb-10 px-4 flex-grow-1">
             <h2 class="text-3xl font-bold text-center mb-6">Green Cleaning Supplies</h2>
+            
+            @if(session('success'))
+                <div class="alert alert-success mb-4">
+                    {{ session('success') }}
+                </div>
+            @endif
+            
             <form action="{{ url('cleaning-products') }}" method="GET" class="search-form">
                 <input type="text" name="search" class="form-control" placeholder="Find the product..."
                     value="{{ request('search') }}">
@@ -42,22 +57,30 @@
                     Cannot find the product!
                 </div>
             @else
-                <div class="grid md:grid-cols-3 grid-cols-1 mt-4 gap-6">
-                    @foreach($products as $product)
-                        <div class="col border rounded shadow-sm">
-                            <div class="card h-100">
-                                <img src="{{asset($product->image_path)}}" class="card-img-top" alt="{{ $product->name }}"
-                                    style="height: 200px; object-fit: cover; width: 100%;">
-                                <div class="my-2">
-                                    <h5 class="card-title fw-bold">{{ $product->name }}</h5>
-                                    <p class="text-success fw-bold mb-1">Price: Rp{{ number_format($product->price, 2) }}</p>
-                                    <p class="card-text">{{ $product->description }}</p>
-                                    <p class="text-muted">Store: {{ $product->store }}</p>
-                                </div>
+            <div class="grid md:grid-cols-3 grid-cols-1 mt-4 gap-6">
+                @foreach($products as $product)
+                    <div class="col border rounded shadow-sm">
+                        <div class="card h-100">
+                            <img src="{{asset($product->image_path)}}" class="card-img-top" alt="{{ $product->name }}"
+                                style="height: 200px; object-fit: cover; width: 100%;">
+                            <div class="my-2 p-3">
+                                <h5 class="card-title fw-bold">{{ $product->name }}</h5>
+                                <p class="text-success fw-bold mb-1">Price: Rp {{ number_format($product->price, 2) }}</p>
+                                <p class="card-text">{{ $product->description }}</p>
+                                <p class="text-muted">Store: {{ $product->store }}</p>
+                                
+                                <form action="{{ route('cart.add') }}" method="POST" class="mt-3">
+                                    @csrf
+                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                    <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded w-full">
+                                        <i class="bi bi-cart-plus"></i> Add to Cart
+                                    </button>
+                                </form>
                             </div>
                         </div>
-                    @endforeach
-                </div>
+                    </div>
+                @endforeach
+            </div>
             @endif
         </section>
     </main>

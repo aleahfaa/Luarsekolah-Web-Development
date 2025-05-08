@@ -157,3 +157,27 @@ document.addEventListener("DOMContentLoaded", function () {
         navMenu.classList.toggle("show");
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const checkoutForm = document.getElementById("checkoutForm");
+    if (checkoutForm) {
+        checkoutForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            showPopup("This feature will be available soon", "info");
+        });
+    }
+});
+
+function showPopup(message, type) {
+    const bgClass = type === "success" ? "bg-green-500"
+                  : type === "error" ? "bg-red-500"
+                  : "bg-blue-500";
+    const popup = document.createElement("div");
+    popup.className = `${bgClass} text-white p-3 fixed top-10 right-10 rounded shadow-lg z-50`;
+    popup.textContent = message;
+
+    document.body.appendChild(popup);
+    setTimeout(() => {
+        popup.remove();
+    }, 3000);
+}
