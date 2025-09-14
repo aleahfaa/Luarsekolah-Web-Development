@@ -1,21 +1,3 @@
-const heroSection = document.querySelector('#home');
-const images = [
-    './img/hero-section.jpg',
-    './img/hero-section-2.jpg',
-    './img/hero-section-3.jpg',
-    './img/hero-section-4.jpg',
-    './img/hero-section-5.jpg',
-    './img/hero-section-6.jpg'
-
-];
-let currentIndex = 0;
-function changeBackgroundImage() {
-    currentIndex = (currentIndex + 1) % images.length;
-    heroSection.style.backgroundImage = `url(${images[currentIndex]})`;
-}
-setInterval(changeBackgroundImage, 3000);
-
-
 document.addEventListener("DOMContentLoaded", function () {
     var swiper = new Swiper(".mySwiper", {
         slidesPerView: 1,
@@ -175,3 +157,27 @@ document.addEventListener("DOMContentLoaded", function () {
         navMenu.classList.toggle("show");
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const checkoutForm = document.getElementById("checkoutForm");
+    if (checkoutForm) {
+        checkoutForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            showPopup("This feature will be available soon", "info");
+        });
+    }
+});
+
+function showPopup(message, type) {
+    const bgClass = type === "success" ? "bg-green-500"
+                  : type === "error" ? "bg-red-500"
+                  : "bg-blue-500";
+    const popup = document.createElement("div");
+    popup.className = `${bgClass} text-white p-3 fixed top-10 right-10 rounded shadow-lg z-50`;
+    popup.textContent = message;
+
+    document.body.appendChild(popup);
+    setTimeout(() => {
+        popup.remove();
+    }, 3000);
+}
